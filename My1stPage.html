@@ -4,16 +4,18 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<!--
-		This is my style setting of my bodytext, it should be use the Times font; 
+		This is my style setting of my body text, it should be used the Times font; 
 		and my storytitle will be in Bold, Times, 24px and stay in the center of my page;
 		my img will be in 500px with hidden border;
 		and my story text will be in 18px, Times style and with lightblue color.	
 			-->
 		<style>
-		/*This is CSS comment */
+		/*This is my added CSS comment: In the style part I will add several tags to change the font of my text and my pictures. */
+		/*The body tag change all my font style to Times.*/
 			body{
 				font-family:Times;
 			}
+		/*The storytitle tag changes my title's text font style to bold, font size to 24px and color to blue. Plus put my title to the center of my website.*/
 			.storytitile{
 				font-style:bold;
 				font-family:Times;
@@ -21,17 +23,20 @@
 				color:#6495ED;
 				text-align:center;
 			}
+		/*The img tag changes all my pictures in my website to 100% of its original size*/
 			img{
 				width:100%;
 				text-align:center;
 				display:block;	
 			}
+		/*The imgstyle tag changes my pictures' border as hidden and the size to 500px.*/
 			.imgstyle{
 				border:hidden;
 				width:500px;
 					
 			}
-			
+		/*The storytext tag changes my story text to 18px, black and normal style.*/
+		
 			.storytext{
 				font-family:Times
 				font-size:18px;
@@ -44,7 +49,7 @@
 	<body>
 		<div>
 		<!--
-		This is my first stoty, I will use this as a tempalte to put my all other 4 stories in.	
+		This is my first story, I will use this as a template to put my all other 4 stories in.	
 			-->
 			<div class="storytitile">
 				<!--
@@ -55,7 +60,7 @@
 				</a>
 			</div>
 			<!--
-		This is URL to my image. I selected this one becasue it is relevant to my story and comes from the original web.	
+		This is URL to my image. I selected this one because it is relevant to my story and came from the original web.	
 			-->
 			<div class="imgstyle">
 				<!--
@@ -70,7 +75,7 @@
 			Peace talks between the Government of Colombia and the rebel National Liberation Army or ELN, that seek to end more than half a century of fighting are welcome. Both sides should pay more attention to the rights of refugees and displaced people in Colombia, according to UNHCR.
 			</div>
 		<!--
-		This is my second stoty, I changed its title, url of titile, img, url of img and wrote a summray for it.	
+		This is my second story, I changed its title, URL of title, img, URL of img and wrote a summary for it.	
 			-->
 			<div class="storytitile">
 				<a href="https://blog.willamette.edu/worldnews/2013/12/02/why-do-people-leave-colombia/">
@@ -83,7 +88,7 @@
 			<div class="storytext">
 			This story will give us a sepcific insight into reasons why Colombian people left their homes either fled to other countires or displaced near borders.
 			<!--
-		This is my third stoty, I changed its title, url of titile, img, url of img and wrote a summray for it.	
+		This is my third story, I changed its title, url of title, img, url of img and wrote a summary for it.	
 			-->
 			<div class="storytitile">
 				<a href="http://borgenproject.org/10-facts-colombian-refugees/">
@@ -110,7 +115,7 @@
 			</div>
 			
 			<!--
-		This is my forth stoty, I changed its title, url of titile, img, url of img and wrote a summray for it.	
+		This is my forth story, I changed its title, URL of title, img, URL of img and wrote a summary for it.
 			-->
 			<div class="storytitile">
 				<a href="https://www.washingtonpost.com/world/the_americas/colombias-war-has-displaced-7-million-with-peace-will-they-go-home/2016/09/05/538df3c6-6eb8-11e6-993f-73c693a89820_story.html?utm_term=.c9133667121a">
@@ -125,7 +130,7 @@
 			</div>
 			
 			<!--
-		This is my fifth stoty, I changed its title, url of titile, img, url of img and wrote a summray for it.	
+		This is my fifth story, I changed its title, URL of title, img, URL of img and wrote a summary for it.	
 			-->
 			<div class="storytitile">
 				<a href="http://www.americasquarterly.org/node/3281">
@@ -143,20 +148,33 @@
 		</div>
 		<script>
 		/* Description of my data here */
-		/* This is number */
-		var Columbian_Refugees_number = 90836;
+		/* These data shows Colombian Refugees' number, IDPs' numbers, problems Colombian refugees facing, hosting countries and their living conditions.*/
+		/* This is number, the number shows that the total Colombian refugees number is 90836 according to UNHCR's report by the end of 2015.*/
+		var Colombian_Refugees_number = 90836;
+		/* This is number, the number shows that the total Colombian IDPs number is 6939067 according to UNHCR's report by the end of 2015.*/
+		var Colombian_Idps_number = 6939067;
 		/* This is an object */
-		var Columbian_Refugees = {"peoblems1":"Security","problem2":"Umemployent"};
+        /* This shows the all problems Colombian facing in hosting countries: lack of security; lack of protection of women and children; failure of local assimilation; lack of legal status. */
+        /* The problem2 includes an array that lists three major issues women and children facing.*/
+        /* The problem3 incldues an object that shows difficulties that Colombian refugees facing when it comes to local assimilation.*/
+		var Colombian_Refugees_problem = {"problem1":"Security",
+		"problem2":"['women are forced to prostitution','women are facing sexual harassment','children cannot access to secondary education']",
+		"problem3":"{'local_assimilation1':'Unemployment','local_assimilation2':'culture differences','local_assimilation3':'lack of fundings and resources'}",
+		"problem4":"illegal status"};
 		/* This is a list*/
-		var Columbian_Refugees_destination = ["Ecuador","Panama","Venezuela"];
+		/* The list shows the destination countries that Colombian refugees fled*/
+		var Colombian_Refugees_destination = ["Ecuador","Panama","Venezuela","Canada","U.S."];
 		/* This is a boolean*/
-		var Columbian_Refugees_goodcondition = false;
+		/* This shows most Colombian refugees are not in a good living condition.*/
+		var Colombian_Refugees_goodcondition = false;
 		/* This is a string*/
-		var Columbian_Refugees_assistance = "UNHCR";
+		/* This shows most assistance Colombian Refugees accepted is from UNHCR.*/
+		var Colombian_Refugees_most_assistance = "UNHCR";
 		
+		console.log("Hello World");
 		
-			
-			
+		console.log(Colombian_Refugees_destination);
+		
 		</script>
 	
 	</body>
