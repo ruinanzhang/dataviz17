@@ -277,22 +277,32 @@
 		"Story_summary":"This is a story about how Eat Offbeat bring all kinds of food from refugees hometowns to people in NYC."
 		/* This is my summary of my article. */
 		
-		}];
+		}
+		];
 		
-		/* My Goal: loop through my list of stories and console log only the ones that published in 2016. */
+		/* My Goal: loop through my list of stories (my_relevant_stories) and console log print only the ones that published in 2016. */
 		
 		/* I created a for loop to go through my list of relevant stories*/
-		for (var counter = 0; counter < my_.length; counter++) {
+		for (var counter = 0; counter < my_relevant_stories.length; counter++) {
 			
+		/* For every item in my list that I will loop through, I count from 0 and I want to go through all items in my list.
+		 * And I will count and add up by 1.
+		 * The loop will continue as long as it not longer than my list.
+		 */
 			var a_story= my_relevant_stories[counter];
+			/* To look at stories in my list that published in 2016. 
+			 * I created another box called a_story to put all my stories that published in 2016*/
 			
 			if (a_story.Published_year == "2016") {
-				
+				/* I use the function if to check whether the property: Published_year of the object in my list is 2016.
+				 * So if the value is 2016, 
+				 * I want use console log to print this story.*/
 				console.log(a_story);
 			}
+				/* If the value is not 2016, 
+				 * then I want console log to print "Not 2016"*/
 			else {
 				console.log("Not 2016")
-				
 				}
 			
 		}
