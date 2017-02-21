@@ -4,314 +4,177 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<!--
-		This is my style setting of my body text, it should be used the Times font; 
+		This is my style setting of my body text, it should be used the Times font;
 		and my storytitle will be in Bold, Times, 24px and stay in the center of my page;
 		my img will be in 500px with hidden border;
-		and my story text will be in 18px, Times style and with lightblue color.	
-			-->
-		<style>
-		/*This is my added CSS comment: In the style part I will add several tags to change the font of my text and my pictures. */
-		/*The body tag change all my font style to Times.*/
-			body{
-				font-family:Times;
-			}
-		/*The storytitle tag changes my title's text font style to bold, font size to 24px and color to blue. Plus put my title to the center of my website.*/
-			.storytitile{
-				font-style:bold;
-				font-family:Times;
-				font-size:24px;
-				color:#6495ED;
-				text-align:center;
-			}
-		/*The img tag changes all my pictures in my website to 100% of its original size*/
-			img{
-				width:100%;
-				text-align:center;
-				display:block;	
-			}
-		/*The imgstyle tag changes my pictures' border as hidden and the size to 500px.*/
-			.imgstyle{
-				border:hidden;
-				width:500px;
-					
-			}
-		/*The storytext tag changes my story text to 18px, black and normal style.*/
-		
-			.storytext{
-				font-family:Times
-				font-size:18px;
-				color:#6495ED;
-				font-style:normal;
-			}
-		</style>
+		and my story text will be in 18px, Times style and with lightblue color.
+		-->
+
 		<title>My Refugee Story Collection</title>
+		<!--script exmple loaded from https://developers.google.com/chart/interactive/docs/quick_start-->
+		<!--Load Javascript code from the Google Visualization Lib-->
+		<!--Load the AJAX API-->
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<script type="text/javascript">
+			// Load the Visualization API and the corechart package.
+			google.charts.load('current', {
+				'packages' : ['corechart']
+			});
+
+			// Set a callback to run when the Google Visualization API is loaded.
+			/*(When google calls back with the contents of the "corechart" package)
+			 *execute the "drawChart" function*/
+			google.charts.setOnLoadCallback(drawChart);
+
+			/* This is the drawChart function. 
+			 * It doesn't need any extra ingredients.
+			 * It draws a chart on the page.
+			 */
+			
+			// Callback that creates and populates a data table,
+			// instantiates the pie chart, passes in the data and
+			// draws it.
+			function drawChart() {
+
+				// Create the data table.
+				/*
+				 * Call on the DataTable recipe to make a new DataTbale type
+				 */
+				var data_container = new google.visualization.DataTable();
+				/*
+				 * Added a column of type string, labeled "Topping".
+				 */
+				data_container.addColumn('string', 'Topping');
+				/*
+				 * Added a column of type number, labeled "Slices".
+				 */
+				data_container.addColumn('number', 'Slices');
+				/*
+				 * My rows must be a list of lists, 
+				 * with each item in the list 
+				 * having the same number of elements as I have columns.
+				 * And with the data types matching those that were declared in my "addcolumn" function calls.
+				 */
+				data_container.addRows([['Mushrooms', 3], ['Onions', 1], ['Olives', 1], ['Zucchini', 1], ['Pepperoni', 2]]);
+
+				// Set chart options
+				/* Options object inclueds sine customizations.
+				 * We will need to add to this extensively to 
+				 * make visualizations we might actually wabt to publish.
+				 */
+				var customization_options = {
+					'title' : 'How Much Pizza I Ate Last Night',
+					'width' : 400,
+					'height' : 300
+				};
+				/* Creating a variable, in which I am storing the result 
+				 * of calling the "PieChart" function.
+				 * I must pass that function the id of a dic that exists on the HTML page.
+				 */
+				// Instantiate and draw our chart, passing in some options.
+				var chart = new google.visualization.PieChart(document.getElementById('chart_holder'));
+				chart.draw(data_container, customization_options);
+			}
+		</script>
+		<link rel="stylesheet" href="styles.css"/>
 	</head>
 	<body>
+		
+		<!--This is the div where I want my Google Viz chart to appear. -->
+		
+		<div id="chart_holder"></div>
+		
 		<div>
-		<!--
-		This is my first story, I will use this as a template to put my all other 4 stories in.	
+			<!--
+			This is my first story, I will use this as a template to put my all other 4 stories in.
 			-->
 			<div class="storytitile">
 				<!--
-		This is URL to my story.	
-			-->
-				<a href="http://www.unhcr.org/en-us/news/latest/2016/4/570cf4706/unhcr-include-refugees-displaced-colombia-peace-talks.html">
-				UNHCR: Include Refugees and Displaced in Colombia Peace Talks
-				</a>
+				This is URL to my story.
+				-->
+				<a href="http://www.unhcr.org/en-us/news/latest/2016/4/570cf4706/unhcr-include-refugees-displaced-colombia-peace-talks.html"> UNHCR: Include Refugees and Displaced in Colombia Peace Talks </a>
 			</div>
 			<!--
-		This is URL to my image. I selected this one because it is relevant to my story and came from the original web.	
+			This is URL to my image. I selected this one because it is relevant to my story and came from the original web.
 			-->
 			<div class="imgstyle">
 				<!--
-		I tried to use several ways to put my img in the middle of my webpage, but it just didn't work. 	
-			-->
+				I tried to use several ways to put my img in the middle of my webpage, but it just didn't work.
+				-->
 				<img src="http://www.unhcr.org/thumb1/570cc1a76.jpg" align="middle">
-			</div>	
+			</div>
 			<div class="storytext">
 				<!--
-		This part is the summary of the story I chose.
-			-->
-			Peace talks between the Government of Colombia and the rebel National Liberation Army or ELN, that seek to end more than half a century of fighting are welcome. Both sides should pay more attention to the rights of refugees and displaced people in Colombia, according to UNHCR.
+				This part is the summary of the story I chose.
+				-->
+				Peace talks between the Government of Colombia and the rebel National Liberation Army or ELN, that seek to end more than half a century of fighting are welcome. Both sides should pay more attention to the rights of refugees and displaced people in Colombia, according to UNHCR.
 			</div>
-		<!--
-		This is my second story, I changed its title, URL of title, img, URL of img and wrote a summary for it.	
+			<!--
+			This is my second story, I changed its title, URL of title, img, URL of img and wrote a summary for it.
 			-->
 			<div class="storytitile">
-				<a href="https://blog.willamette.edu/worldnews/2013/12/02/why-do-people-leave-colombia/">
-				 Why Do People Leave Colombia?
-				</a>
+				<a href="https://blog.willamette.edu/worldnews/2013/12/02/why-do-people-leave-colombia/"> Why Do People Leave Colombia? </a>
 			</div>
 			<div class="imgstyle">
 				<img src="http://blog.willamette.edu/worldnews/files/2013/11/casa-levantada-por-la-poblacion-desplazada-vereda-el-bosque-junio2010-bn-300x225.jpg" align="middle">
-			</div>	
+			</div>
 			<div class="storytext">
-			This story will give us a sepcific insight into reasons why Colombian people left their homes either fled to other countires or displaced near borders.
+				This story will give us a sepcific insight into reasons why Colombian people left their homes either fled to other countires or displaced near borders.
+				<!--
+				This is my third story, I changed its title, url of title, img, url of img and wrote a summary for it.
+				-->
+				<div class="storytitile">
+					<a href="http://borgenproject.org/10-facts-colombian-refugees/"> 10 Facts Regarding Colombian Refugees </a>
+				</div>
+				<div class="imgstyle" align="middle">
+					<img src="http://borgenproject.org/wp-content/uploads/Colombian-Refugees-530x354.jpg">
+				</div>
+				<div class="storytext">
+					This article let us understand 10 significants facts of Colombian refugees that people may not know before:
+					1.Colombia has the second highest number of internally displaced persons in the world.
+					2.Children are at high risk for displacement and militant group recruitment.
+					3.Indigenous populations and Afro-Colombians are also at-risk.
+					4.About 250,000 Colombian refugees live in Ecuador.
+					5.Colombian refugees often travel to Panama and Venezuela seeking asylum.
+					6.Refugee women tend to have trouble finding jobs once displaced.
+					7.Some refugees are receiving legal support.
+					8.Long-term solutions are being established.
+					9.Their communities are being recognized.
+					10.Action is being taken by some.
+				</div>
+
+			</div>
+
 			<!--
-		This is my third story, I changed its title, url of title, img, url of img and wrote a summary for it.	
+			This is my forth story, I changed its title, URL of title, img, URL of img and wrote a summary for it.
 			-->
 			<div class="storytitile">
-				<a href="http://borgenproject.org/10-facts-colombian-refugees/">
-				 10 Facts Regarding Colombian Refugees
-				</a>
-			</div>
-			<div class="imgstyle" align="middle">
-				<img src="http://borgenproject.org/wp-content/uploads/Colombian-Refugees-530x354.jpg">
-			</div>	
-			<div class="storytext">
-			This article let us understand 10 significants facts of Colombian refugees that people may not know before:
-			1.Colombia has the second highest number of internally displaced persons in the world.
-			2.Children are at high risk for displacement and militant group recruitment.
-			3.Indigenous populations and Afro-Colombians are also at-risk.
-			4.About 250,000 Colombian refugees live in Ecuador.
-			5.Colombian refugees often travel to Panama and Venezuela seeking asylum. 
-			6.Refugee women tend to have trouble finding jobs once displaced. 
-			7.Some refugees are receiving legal support. 
-			8.Long-term solutions are being established.
-			9.Their communities are being recognized.
-			10.Action is being taken by some.
-			</div>
-			
-			</div>
-			
-			<!--
-		This is my forth story, I changed its title, URL of title, img, URL of img and wrote a summary for it.
-			-->
-			<div class="storytitile">
-				<a href="https://www.washingtonpost.com/world/the_americas/colombias-war-has-displaced-7-million-with-peace-will-they-go-home/2016/09/05/538df3c6-6eb8-11e6-993f-73c693a89820_story.html?utm_term=.c9133667121a">
-				 Colombia’s war has displaced 7 million. With peace, will they go home?
-				</a>
+				<a href="https://www.washingtonpost.com/world/the_americas/colombias-war-has-displaced-7-million-with-peace-will-they-go-home/2016/09/05/538df3c6-6eb8-11e6-993f-73c693a89820_story.html?utm_term=.c9133667121a"> Colombia’s war has displaced 7 million. With peace, will they go home? </a>
 			</div>
 			<div class="imgstyle" align="middle">
 				<img src="https://img.washingtonpost.com/rf/image_1484w/2010-2019/WashingtonPost/2016/09/04/Others/Images/2016-09-04/_MG_72331472969471.jpg?uuid=Y_QgJnJmEeaXgUnlkXgXVA">
-			</div>	
-			<div class="storytext">
-			Over the course of the ­half-century war, rural residents have poured into Colombia’s cities to escape bombings, land mines, massacres, kidnappings, death threats and land seizures. They see peace with the FARC — or the Revolutionary Armed Forces of Colombia — as a remedy for one source of violence, but they know that many regions are still threatened by other armed groups. They also don’t trust the government to protect them.
 			</div>
-			
+			<div class="storytext">
+				Over the course of the ­half-century war, rural residents have poured into Colombia’s cities to escape bombings, land mines, massacres, kidnappings, death threats and land seizures. They see peace with the FARC — or the Revolutionary Armed Forces of Colombia — as a remedy for one source of violence, but they know that many regions are still threatened by other armed groups. They also don’t trust the government to protect them.
+			</div>
+
 			<!--
-		This is my fifth story, I changed its title, URL of title, img, URL of img and wrote a summary for it.	
+			This is my fifth story, I changed its title, URL of title, img, URL of img and wrote a summary for it.
 			-->
 			<div class="storytitile">
-				<a href="http://www.americasquarterly.org/node/3281">
-				 Dispatches: Ecuador's Invisible Refugee Population.
-				</a>
+				<a href="http://www.americasquarterly.org/node/3281"> Dispatches: Ecuador's Invisible Refugee Population. </a>
 			</div>
 			<div class="imgstyle" align="middle">
 				<img src="http://www.americasquarterly.org/sites/default/files/Dispatches_3.jpg">
 			</div>
-			
-			<div class="storytext">
-			This is about Colombian citizens who have fled the violence in their own country face discrimination and an uncertain future in Ecuador.Their living conditions and the rights they have are very tough and limited. 
-			</div>
-			
-		</div>
-		<script>
-		/* Description of my data here */
-		/* These data shows Colombian Refugees' number, IDPs' numbers, problems Colombian refugees facing, hosting countries and their living conditions.*/
-		/* This is number, the number shows that the total Colombian refugees number is 90836 according to UNHCR's report by the end of 2015.*/
-		var Colombian_Refugees_number = 90836;
-		/* This is number, the number shows that the total Colombian IDPs number is 6939067 according to UNHCR's report by the end of 2015.*/
-		var Colombian_Idps_number = 6939067;
-		/* This is an object */
-        /* This shows the all problems Colombian facing in hosting countries: lack of security; lack of protection of women and children; failure of local assimilation; lack of legal status. */
-        /* The problem2 includes an array that lists three major issues women and children facing.*/
-        /* The problem3 incldues an object that shows difficulties that Colombian refugees facing when it comes to local assimilation.*/
-		var Colombian_Refugees_problem = {"problem1":"Security",
-		"problem2":["women are forced to prostitution","women are facing sexual harassment","children cannot access to secondary education"],
-		"problem3":{"local_assimilation1":"Unemployment","local_assimilation2":"culture differences","local_assimilation3":"lack of fundings and resources"},
-		"problem4":"illegal status"};
-		/* This is a list*/
-		/* The list shows the destination countries that Colombian refugees fled*/
-		var Colombian_Refugees_destination = ["Ecuador","Panama","Venezuela","Canada","U.S."];
-		/* This is a boolean*/
-		/* This shows most Colombian refugees are not in a good living condition.*/
-		var Colombian_Refugees_goodcondition = false;
-		/* This is a string*/
-		/* This shows most assistance Colombian Refugees accepted is from UNHCR.*/
-		var Colombian_Refugees_most_assistance = "UNHCR";
-		
-		console.log("This is my first time use console.log function");
-		
-		console.log(Colombian_Refugees_destination);
-		
-		console.log(Colombian_Refugees_problem);
-		
-		/*This is my JavaScript list of my articles about my first story.*/
-		/*Each article is an object in my list.*/
 
-		
-		var my_relevant_stories = [{
-		
-		/* This is my first article, I create 6 properties for every article: 
-		 * Headline;Published_year;Program;URL_link;Picture;Story_Summary.
-		 * And I will use this as a template for all my articles below.
-		 */
-		
-		"Headline":"Bronx Farm Helps Refugees Put Down Roots",
-		/* This is my article's titile, it's about the New Roots program in NYC.*/
-		
-		"Published_year":"2016",
-		/* This is article is published in 2016. */
-		
-		"Program":"New Roots",
-		/* This is about an organization that supported by IRC called New Root. */
-		
-		"URL_link":"http://urbanomnibus.net/2016/02/bronx-farm-helps-refugees-put-down-roots/",
-		/* This is my article's url link. */
-		
-		"Picture":"http://urbanomnibus.net/redux/wp-content/uploads/2016/02/IMG_20150604_154948380_Resized-650x366.jpg",
-		/* I found this picture used in the article and it was a picture of the farm.*/
-		
-		"Story_summary":"New Roots program manager Kathleen Mctigue talks about many roles of the farm and its crucial place in the refugee resettlement process."
-		/* This is my summary of my article. */
-		
-		},
-		
-		{
-		/*This is my second article about New Roots program from another website. */
-		
-		"Headline":"International Rescue Committee Helps Refugees Plant New Roots",
-		/* This is my article's titile, it's another story about the New Roots program.*/
-		
-		"Published_year":"2015",
-		/* This is article is published in 2015. */
-		
-		"Program":"New Roots",
-		/* This is about an organization that supported by IRC called New Root. */
-		
-		"URL_link":"http://modernfarmer.com/2015/10/international-rescue-committee-new-roots/",
-		/* This is my article's url link. */
-		
-		"Picture":"http://cdn.modernfarmer.com/wp-content/uploads/2015/10/refugees-hero.jpg",
-		/* This is a picture of Koffi Ogou holding vegetables in front of the farm. */
-		
-		"Story_summary":"This is a story about Koffi Ogou, a refugee from Togolese that joined the New Roots in Phoenix, AZ. "
-		/* This is my summary of my article. */
-		
-		},
-		
-		{
-		
-		/*This is my third article about a restaurant called Safari run by a Somali refugee. */
-		
-		"Headline":"Safari Brings Somali Cuisine to Harlem",
-		/* This is my article's titile, it's a story about the restaurant Safari.*/
-		
-		"Published_year":"2015",
-		/* This is article is published in 2015. */
-		
-		"Program":"Somali Restaurant",
-		/* This is about a restaurant run owned by Somali refugees. */
-		
-		"URL_link":"https://www.nytimes.com/2015/10/07/dining/hungry-city-safari-somali-restaurant-harlem.html?smid=pl-share&_r=1",
-		/* This is my article's url link. */
-		
-		"Picture":"https://static01.nyt.com/images/2015/10/07/dining/07HUNGRY-SAFARI-slide-C97U/07HUNGRY-SAFARI-slide-C97U-master1050.jpg",
-		/* This is a picture of the cuisine that provided by Safari. */
-		
-		"Story_summary":"This is a story about the restaurant called Safari that owned by Maymuuna Birjeeb, a Somali refugee came to the U.S 15 years ago. "
-		/* This is my summary of my article. */
-		
-		},
-		
-		{
-		
-		/*This is my forth article about a startup company called Eat Offbeat. */
-		
-		"Headline":"Inside Eat Offbeat, The Refugee-Run Kitchen That's Satisfying Adventurous Eaters With A Taste For Social Good",
-		/* This is my article's titile, it's a story about Eat Offbeat -- a startup company runs by refugees in NYC.*/
-		
-		"Published_year":"2016",
-		/* This is article is published in 2016. */
-		
-		"Program":"Eat Offbeat",
-		/* This is about another food projects related to refugees called Eat Offbeat. */
-		
-		"URL_link":"http://www.forbes.com/sites/katiesola/2016/08/22/inside-eat-offbeat-the-refugee-run-kitchen-thats-satisfying-adventurous-eaters-with-a-taste-for-social-good/#447b31b222d5",
-		/* This is my article's url link. */
-		
-		"Picture":"http://specials-images.forbesimg.com/imageserve/57b1e71b4bbe6f092f72d639/960x.jpg",
-		/* This is a picture of the chef of Eat Offbeat, who grew up in Iraq.*/
-		
-		"Story_summary":"This is a story about how Eat Offbeat bring all kinds of food from refugees hometowns to people in NYC."
-		/* This is my summary of my article. */
-		
-		}
-		];
-		
-		/* My Goal: loop through my list of stories (my_relevant_stories) and console log print only the ones that published in 2016. */
-		
-		/* I created a for loop to go through my list of relevant stories*/
-		for (var counter = 0; counter < my_relevant_stories.length; counter++) {
-			
-		/* For every item in my list that I will loop through, I count from 0 and I want to go through all items in my list.
-		 * And I will count and add up by 1.
-		 * The loop will continue as long as it not longer than my list.
-		 */
-			var a_story= my_relevant_stories[counter];
-			/* To look at stories in my list that published in 2016. 
-			 * I created another box called a_story to put all my stories that published in 2016*/
-			
-			if (a_story.Published_year == "2016") {
-				/* I use the function if to check whether the property: Published_year of the object in my list is 2016.
-				 * So if the value is 2016, 
-				 * I want use console log to print this story.*/
-				console.log(a_story);
-			}
-				/* If the value is not 2016, 
-				 * then I want console log to print "Not 2016"*/
-			else {
-				console.log("Not 2016")
-				}
-			
-		}
-		
-		
-		
-		
-		</script>
-	
+			<div class="storytext">
+				This is about Colombian citizens who have fled the violence in their own country face discrimination and an uncertain future in Ecuador.Their living conditions and the rights they have are very tough and limited.
+			</div>
+
+		</div>
+		<script type="text/javascript" src=scripts.js></script>
+
 	</body>
 </html>
 
