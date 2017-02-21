@@ -1,0 +1,31 @@
+/*This is my added CSS comment: In the style part I will add several tags to change the font of my text and my pictures. */
+/*The body tag change all my font style to Times.*/
+body {
+	font-family: Times;
+}
+/*The storytitle tag changes my title's text font style to bold, font size to 24px and color to blue. Plus put my title to the center of my website.*/
+.storytitile {
+	font-style: bold;
+	font-family: Times;
+	font-size: 24px;
+	color: #6495ED;
+	text-align: center;
+}
+/*The img tag changes all my pictures in my website to 100% of its original size*/
+img {
+	width: 100%;
+	text-align: center;
+	display: block;
+}
+/*The imgstyle tag changes my pictures' border as hidden and the size to 500px.*/
+.imgstyle {
+	border: hidden;
+	width: 500px;
+}
+/*The storytext tag changes my story text to 18px, black and normal style.*/
+
+.storytext {
+	font-family: Times font-size :18px;
+	color: #6495ED;
+	font-style: normal;
+}
