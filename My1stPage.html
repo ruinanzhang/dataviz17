@@ -65,7 +65,9 @@
 
 				/* And then I will use following steps to customize my chart. 
 				/* Options object inclueds my own customizations that I want to add to my chart.
-				 * I will add as much properties 
+				 * I will add as much properties as I can to my chart.
+				 * For instance, I added my titile, I defined the size of my chart, my background color,
+				 * and my pie chart color.
 				 */
 				var my_preference_options = {
 					'title' : 'Colombian Refugees Statistics by 2015',
@@ -75,20 +77,21 @@
 					 'colors':['#ff9933','#FA8072','#ff3399','#666699','#009999'],
 					
 				};
-				/* Creating a variable, in which I am storing the result 
-				 * of calling the "PieChart" function.
-				 * I must pass that function the id of a dic that exists on the HTML page.
+				/* Created a variable called my_chart, in which could save all my things in it.
+				 * After that I will call my "PieChart" function.
+				 * I need use the id function to define a div called "chart_keeper"
+				 * chart_keeper is to keep everthing in it and make my chart appear on the HTML page.
 				 */
-				// Instantiate and draw our chart, passing in some options.
-				var chart = new google.visualization.PieChart(document.getElementById('chart_keeper'));
-				chart.draw(data_package, my_preference_options);
+				/* And my last step would be instantiate and draw my chart, applying my options. */
+				var my_chart = new google.visualization.PieChart(document.getElementById('chart_keeper'));
+				my_chart.draw(data_package, my_preference_options);
 			}
 		</script>
 		<link rel="stylesheet" href="styles.css"/>
 	</head>
 	<body>
 		
-		<!--This is the div where I want my Google Viz chart to appear. -->
+		<!--This is the div where I want my Google Viz chart to keep and show up. -->
 		
 		<div id="chart_keeper"></div>
 		
