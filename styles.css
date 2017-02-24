@@ -34,3 +34,6 @@ img {
 	height:400px;
 	background-color: #99ccff;
 }
+/*The chart_keeper tag leaves space for my chart on my HTML page and make sure it won't jump out.
+ * Plus it also define the space's size and color.
+ */
