@@ -16,7 +16,7 @@
 		<!--Load the AJAX API-->
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 		<script type="text/javascript">
-			/* Before we start to build our charts, we should oad the Visualization API and the corechart package.
+			/* Before we start to build our charts, we should load the Visualization API and the corechart package.
 			 * And this is a build-in function that we used from google.*/
 			google.charts.load('current', {
 				'packages' : ['corechart']
@@ -34,44 +34,54 @@
 			/* Callback that makes and puts a data table,  inputs the data and draws the pie chart. */
 			function drawChart() {
 
-				/* Create the data table.*/
+				/* The following steps are used to create a data table.*/
 				/*
-				 * Call on the DataTable recipe to make a new DataTbale type
+				 * Use the DataTable recipe to create a data table to put my original data.
+				 * I call my data container data_package which includes all may raw data.
+				 * My raw data is from UNHCR's 2015 annual report.
+				 * I chose the part about Colombian Refugees, IDPs, and so on. 
 				 */
-				var data_container = new google.visualization.DataTable();
+				var data_package = new google.visualization.DataTable();
 				/*
-				 * Added a column of type string, labeled "Topping".
+				 * Added a column of type string, called it "status".
 				 */
-				data_container.addColumn('string', 'Topping');
+				data_package.addColumn('string', 'Status');
 				/*
-				 * Added a column of type number, labeled "Slices".
+				 * Added a column of type number, called it "Population".
 				 */
-				data_container.addColumn('number', 'Slices');
+				data_package.addColumn('number', 'Population');
 				/*
-				 * My rows must be a list of lists, 
-				 * with each item in the list 
-				 * having the same number of elements as I have columns.
-				 * And with the data types matching those that were declared in my "addcolumn" function calls.
+				 * My rows must be a list of arrays, 
+				 * with each thing in my list, 
+				 * it should have the same number of elements as I have columns.
+				 * And the data type in my list should match what I defined in my "addcolumn" function.
+				 * Finally, I use "addRows" function to put my raw data into my data table.
 				 */
-				data_container.addRows([['Mushrooms', 3], ['Onions', 1], ['Olives', 1], ['Zucchini', 1], ['Pepperoni', 2]]);
+				data_package.addRows([['Refugees', 90836], 
+				['People in refugee-like situation', 249404], 
+				['Returned refugees',1792], 
+				['IDPs',6939067 ], 
+				['Asylum seekers ', 6905]]);
 
-				// Set chart options
-				/* Options object inclueds sine customizations.
-				 * We will need to add to this extensively to 
-				 * make visualizations we might actually wabt to publish.
+				/* And then I will use following steps to customize my chart. 
+				/* Options object inclueds my own customizations that I want to add to my chart.
+				 * I will add as much properties 
 				 */
-				var customization_options = {
-					'title' : 'How Much Pizza I Ate Last Night',
-					'width' : 400,
-					'height' : 300
+				var my_preference_options = {
+					'title' : 'Colombian Refugees Statistics by 2015',
+					'width' : 600,
+					'height' : 400,
+					'backgroundColor': '#99ccff',
+					 'colors':['#ff9933','#FA8072','#ff3399','#666699','#009999'],
+					
 				};
 				/* Creating a variable, in which I am storing the result 
 				 * of calling the "PieChart" function.
 				 * I must pass that function the id of a dic that exists on the HTML page.
 				 */
 				// Instantiate and draw our chart, passing in some options.
-				var chart = new google.visualization.PieChart(document.getElementById('chart_holder'));
-				chart.draw(data_container, customization_options);
+				var chart = new google.visualization.PieChart(document.getElementById('chart_keeper'));
+				chart.draw(data_package, my_preference_options);
 			}
 		</script>
 		<link rel="stylesheet" href="styles.css"/>
@@ -80,7 +90,7 @@
 		
 		<!--This is the div where I want my Google Viz chart to appear. -->
 		
-		<div id="chart_holder"></div>
+		<div id="chart_keeper"></div>
 		
 		<div>
 			<!--
