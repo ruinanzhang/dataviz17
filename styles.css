@@ -29,3 +29,8 @@ img {
 	color: #6495ED;
 	font-style: normal;
 }
+#chart_keeper{
+	width:600px;
+	height:400px;
+	background-color: #99ccff;
+}
