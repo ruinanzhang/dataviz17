@@ -16,27 +16,25 @@
 		<!--Load the AJAX API-->
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 		<script type="text/javascript">
-			// Load the Visualization API and the corechart package.
+			/* Before we start to build our charts, we should oad the Visualization API and the corechart package.
+			 * And this is a build-in function that we used from google.*/
 			google.charts.load('current', {
 				'packages' : ['corechart']
 			});
 
-			// Set a callback to run when the Google Visualization API is loaded.
-			/*(When google calls back with the contents of the "corechart" package)
-			 *execute the "drawChart" function*/
+			/* To receive our "corechart" package, we should set a callback to run when the Google Visualization API is loaded.
+			/* After google calls back with the contents of the "corechart" package we requested,
+			 * operate the "drawChart" function*/
+			
 			google.charts.setOnLoadCallback(drawChart);
 
-			/* This is the drawChart function. 
-			 * It doesn't need any extra ingredients.
-			 * It draws a chart on the page.
+			/* Above is the drawChart function. 
+			 * It doesn't need any extra ingredients and it will help us draws a chart on the page.
 			 */
-			
-			// Callback that creates and populates a data table,
-			// instantiates the pie chart, passes in the data and
-			// draws it.
+			/* Callback that makes and puts a data table,  inputs the data and draws the pie chart. */
 			function drawChart() {
 
-				// Create the data table.
+				/* Create the data table.*/
 				/*
 				 * Call on the DataTable recipe to make a new DataTbale type
 				 */
