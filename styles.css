@@ -29,7 +29,7 @@ img {
 	color: #6495ED;
 	font-style: normal;
 }
-#chart_keeper{
+#chart_keeper1{
 	width:600px;
 	height:400px;
 	background-color: #99ccff;
@@ -37,3 +37,8 @@ img {
 /*The chart_keeper tag leaves space for my chart on my HTML page and make sure it won't jump out.
  * Plus it also define the space's size and color.
  */
+#chart_keeper2{
+	width:600px;
+	height:400px;
+	background-color: #99ccff;
+}
