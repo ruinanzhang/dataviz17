@@ -26,13 +26,21 @@
 			/* After google calls back with the contents of the "corechart" package we requested,
 			 * operate the "drawChart" function*/
 			
-			google.charts.setOnLoadCallback(drawChart);
+			google.charts.setOnLoadCallback(draw_all_charts);
+			
+			function draw_all_charts(){
+				
+				drawChart1();
+				drawChart2();
+				
+				
+			}
 
 			/* Above is the drawChart function. 
 			 * It doesn't need any extra ingredients and it will help us draws a chart on the page.
 			 */
 			/* Callback that makes and puts a data table,  inputs the data and draws the pie chart. */
-			function drawChart() {
+			function drawChart1() {
 
 				/* The following steps are used to create a data table.*/
 				/*
@@ -83,8 +91,72 @@
 				 * chart_keeper is to keep everthing in it and make my chart appear on the HTML page.
 				 */
 				/* And my last step would be instantiate and draw my chart, applying my options. */
-				var my_chart = new google.visualization.PieChart(document.getElementById('chart_keeper'));
+				var my_chart = new google.visualization.PieChart(document.getElementById('chart_keeper1'));
 				my_chart.draw(data_package, my_preference_options);
+				
+				/* End of drawchart function.*/
+			}
+			
+				/*This is the start of my second chart*/
+			
+				
+				function drawChart2() {
+
+				/* The following steps are used to create a data table.*/
+				/*
+				 * Use the DataTable recipe to create a data table to put my original data.
+				 * I call my data container data_package which includes all may raw data.
+				 * My raw data is from UNHCR's 2015 annual report.
+				 * I chose the part about Colombian Refugees, IDPs, and so on. 
+				 */
+				var data_package = new google.visualization.DataTable();
+				/*
+				 * Added a column of type string, called it "status".
+				 */
+				data_package.addColumn('string', 'Status');
+				/*
+				 * Added a column of type number, called it "Population".
+				 */
+				data_package.addColumn('number', 'Population');
+				/*
+				 * My rows must be a list of arrays, 
+				 * with each thing in my list, 
+				 * it should have the same number of elements as I have columns.
+				 * And the data type in my list should match what I defined in my "addcolumn" function.
+				 * Finally, I use "addRows" function to put my raw data into my data table.
+				 */
+				data_package.addRows([['Refugees', 90836], 
+				['People in refugee-like situation', 249404], 
+				['Returned refugees',1792], 
+				['IDPs',6939067 ], 
+				['Asylum seekers ', 6905]]);
+
+				/* And then I will use following steps to customize my chart. 
+				/* Options object inclueds my own customizations that I want to add to my chart.
+				 * I will add as much properties as I can to my chart.
+				 * For instance, I added my titile, I defined the size of my chart, my background color,
+				 * and my pie chart color.
+				 */
+				var my_preference_options = {
+					'title' : 'Colombian Refugees Statistics by 2015',
+					'width' : 600,
+					'height' : 400,
+					'backgroundColor': '#99ccff',
+					 'colors':['#ff9933','#FA8072','#ff3399','#666699','#009999'],
+					
+				};
+				/* Created a variable called my_chart, in which could save all my things in it.
+				 * After that I will call my "PieChart" function.
+				 * I need use the id function to define a div called "chart_keeper"
+				 * chart_keeper is to keep everthing in it and make my chart appear on the HTML page.
+				 */
+				/* And my last step would be instantiate and draw my chart, applying my options. */
+				
+				/*REMEMBER TO CHANGR TARGET DIV NAME*/
+				var my_chart = new google.visualization.PieChart(document.getElementById('chart_keeper2'));
+				my_chart.draw(data_package, my_preference_options);
+				
+				/* End of drawchart function.*/
 			}
 		</script>
 		<link rel="stylesheet" href="styles.css"/>
@@ -93,8 +165,10 @@
 		
 		<!--This is the div where I want my Google Viz chart to keep and show up. -->
 		
-		<div id="chart_keeper"></div>
+		<div id="chart_keeper1"></div>
 		
+		<div id="chart_keeper2"></div>
+
 		<div>
 			<!--
 			This is my first story, I will use this as a template to put my all other 4 stories in.
