@@ -11,6 +11,10 @@
 		-->
 
 		<title>My Refugee Story Collection</title>
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		
 		<!--script exmple loaded from https://developers.google.com/chart/interactive/docs/quick_start-->
 		<!--Load Javascript code from the Google Visualization Lib-->
 		<!--Load the AJAX API-->
@@ -23,20 +27,19 @@
 			});
 
 			/* To receive our "corechart" package, we should set a callback to run when the Google Visualization API is loaded.
-			/* After google calls back with the contents of the "corechart" package we requested,
+			 /* After google calls back with the contents of the "corechart" package we requested,
 			 * operate the "drawChart" function*/
-			
+
 			google.charts.setOnLoadCallback(draw_all_charts);
-			
-			function draw_all_charts(){
-				
+
+			function draw_all_charts() {
+
 				drawChart1();
 				drawChart2();
-				
-				
+
 			}
 
-			/* Above is the drawChart function. 
+			/* Above is the drawChart function.
 			 * It doesn't need any extra ingredients and it will help us draws a chart on the page.
 			 */
 			/* Callback that makes and puts a data table,  inputs the data and draws the pie chart. */
@@ -47,7 +50,7 @@
 				 * Use the DataTable recipe to create a data table to put my original data.
 				 * I call my data container data_package which includes all may raw data.
 				 * My raw data is from UNHCR's 2015 annual report.
-				 * I chose the part about Colombian Refugees, IDPs, and so on. 
+				 * I chose the part about Colombian Refugees, IDPs, and so on.
 				 */
 				var data_package = new google.visualization.DataTable();
 				/*
@@ -59,20 +62,16 @@
 				 */
 				data_package.addColumn('number', 'Population');
 				/*
-				 * My rows must be a list of arrays, 
-				 * with each thing in my list, 
+				 * My rows must be a list of arrays,
+				 * with each thing in my list,
 				 * it should have the same number of elements as I have columns.
 				 * And the data type in my list should match what I defined in my "addcolumn" function.
 				 * Finally, I use "addRows" function to put my raw data into my data table.
 				 */
-				data_package.addRows([['Refugees', 90836], 
-				['People in refugee-like situation', 249404], 
-				['Returned refugees',1792], 
-				['IDPs',6939067 ], 
-				['Asylum seekers ', 6905]]);
+				data_package.addRows([['Refugees', 90836], ['People in refugee-like situation', 249404], ['Returned refugees', 1792], ['IDPs', 6939067], ['Asylum seekers ', 6905]]);
 
-				/* And then I will use following steps to customize my chart. 
-				/* Options object inclueds my own customizations that I want to add to my chart.
+				/* And then I will use following steps to customize my chart.
+				 /* Options object inclueds my own customizations that I want to add to my chart.
 				 * I will add as much properties as I can to my chart.
 				 * For instance, I added my titile, I defined the size of my chart, my background color,
 				 * and my pie chart color.
@@ -81,9 +80,9 @@
 					'title' : 'Colombian Refugees Statistics by 2015',
 					'width' : 600,
 					'height' : 400,
-					'backgroundColor': '#99ccff',
-					 'colors':['#ff9933','#FA8072','#ff3399','#666699','#009999'],
-					
+					'backgroundColor' : '#99ccff',
+					'colors' : ['#ff9933', '#FA8072', '#ff3399', '#666699', '#009999'],
+
 				};
 				/* Created a variable called my_chart, in which could save all my things in it.
 				 * After that I will call my "PieChart" function.
@@ -93,21 +92,20 @@
 				/* And my last step would be instantiate and draw my chart, applying my options. */
 				var my_chart = new google.visualization.PieChart(document.getElementById('chart_keeper1'));
 				my_chart.draw(data_package, my_preference_options);
-				
+
 				/* End of drawchart function.*/
 			}
-			
-				/*This is the start of my second chart*/
-			
-				
-				function drawChart2() {
+
+			/*This is the start of my second chart*/
+
+			function drawChart2() {
 
 				/* The following steps are used to create a data table.*/
 				/*
 				 * Use the DataTable recipe to create a data table to put my original data.
 				 * I call my data container data_package which includes all may raw data.
 				 * My raw data is from UNHCR's 2015 annual report.
-				 * I chose the part about Colombian Refugees, IDPs, and so on. 
+				 * I chose the part about Colombian Refugees, IDPs, and so on.
 				 */
 				var data_package = new google.visualization.DataTable();
 				/*
@@ -119,20 +117,16 @@
 				 */
 				data_package.addColumn('number', 'Population');
 				/*
-				 * My rows must be a list of arrays, 
-				 * with each thing in my list, 
+				 * My rows must be a list of arrays,
+				 * with each thing in my list,
 				 * it should have the same number of elements as I have columns.
 				 * And the data type in my list should match what I defined in my "addcolumn" function.
 				 * Finally, I use "addRows" function to put my raw data into my data table.
 				 */
-				data_package.addRows([['Refugees', 90836], 
-				['People in refugee-like situation', 249404], 
-				['Returned refugees',1792], 
-				['IDPs',6939067 ], 
-				['Asylum seekers ', 6905]]);
+				data_package.addRows([['Refugees', 90836], ['People in refugee-like situation', 249404], ['Returned refugees', 1792], ['IDPs', 6939067], ['Asylum seekers ', 6905]]);
 
-				/* And then I will use following steps to customize my chart. 
-				/* Options object inclueds my own customizations that I want to add to my chart.
+				/* And then I will use following steps to customize my chart.
+				 /* Options object inclueds my own customizations that I want to add to my chart.
 				 * I will add as much properties as I can to my chart.
 				 * For instance, I added my titile, I defined the size of my chart, my background color,
 				 * and my pie chart color.
@@ -141,9 +135,9 @@
 					'title' : 'Colombian Refugees Statistics by 2015',
 					'width' : 600,
 					'height' : 400,
-					'backgroundColor': '#99ccff',
-					 'colors':['#ff9933','#FA8072','#ff3399','#666699','#009999'],
-					
+					'backgroundColor' : '#99ccff',
+					'colors' : ['#ff9933', '#FA8072', '#ff3399', '#666699', '#009999'],
+
 				};
 				/* Created a variable called my_chart, in which could save all my things in it.
 				 * After that I will call my "PieChart" function.
@@ -151,25 +145,37 @@
 				 * chart_keeper is to keep everthing in it and make my chart appear on the HTML page.
 				 */
 				/* And my last step would be instantiate and draw my chart, applying my options. */
-				
+
 				/*REMEMBER TO CHANGR TARGET DIV NAME*/
 				var my_chart = new google.visualization.PieChart(document.getElementById('chart_keeper2'));
 				my_chart.draw(data_package, my_preference_options);
-				
+
 				/* End of drawchart function.*/
 			}
 		</script>
 		<link rel="stylesheet" href="styles.css"/>
 	</head>
 	<body>
+		<!-- This is my week6 update, added a new div.-->
+		<div class="articleContainer">
 		
+			<!-- 
+				This is the div where I want my Google Viz chart to appear.
+				-->
+		
+		<div class="row">
+			<div class="col-md-6">
 		<!--This is the div where I want my Google Viz chart to keep and show up. -->
-		
-		<div id="chart_keeper1"></div>
-		
-		<div id="chart_keeper2"></div>
 
-		<div>
+				<div id="chart_keeper1"></div>
+			</div>
+			
+			<div class="col-md-6">
+				
+				<div id="chart_keeper2"></div>
+		
+			</div>
+		</div>
 			<!--
 			This is my first story, I will use this as a template to put my all other 4 stories in.
 			-->
