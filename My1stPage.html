@@ -13,6 +13,7 @@
 		<title>My Refugee Story Collection</title>
 
 		<!-- Latest compiled and minified CSS -->
+		<!-- This is where we get all recipe and functions to put my viz side by side from BootStrap-->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		
 		<!--script exmple loaded from https://developers.google.com/chart/interactive/docs/quick_start-->
@@ -88,14 +89,14 @@
 				};
 				/* Created a variable called my_chart, in which could save all my things in it.
 				 * After that I will call my "PieChart" function.
-				 * I need use the id function to define a div called "chart_keeper"
-				 * chart_keeper is to keep everthing in it and make my chart appear on the HTML page.
+				 * I need use the id function to define a div called "chart_keeper1"
+				 * chart_keeper1 is to keep everthing in it and make my chart appear on the HTML page.
 				 */
 				/* And my last step would be instantiate and draw my chart, applying my options. */
 				var my_chart = new google.visualization.PieChart(document.getElementById('chart_keeper1'));
 				my_chart.draw(data_package, my_preference_options);
 
-				/* End of drawchart function.*/
+				/* End of draw_my_chart1 function.*/
 			}
 
 			/*This is the start of my second chart*/
@@ -109,10 +110,12 @@
 				 * I call my data container data_package which includes all may raw data.
 				 * My raw data is from Refugee Processing Center by the end of 2016.
 				 * It's about the Colombian Refugees admitted into the US between Jan 2010 to Dec 2016.
+				 * Because variables are unique inside one function and independent from other functions,
+				 * So I don't have to change ecah variable name under this function. 
 				 */
 				var data_package = new google.visualization.DataTable();
 				/*
-				 * Added a column of type string, called it "status".
+				 * Added a column of type string, called it "year".
 				 */
 				data_package.addColumn('string', 'year');
 				/*
@@ -157,28 +160,33 @@
 				/*REMEMBER TO CHANGR TARGET DIV NAME*/
 				var my_chart = new google.visualization.BarChart(document.getElementById('chart_keeper2'));
 				my_chart.draw(data_package, my_preference_options);
-				/* End of drawchart function.*/
+				/* End of draw_my_chart2 function.*/
 			}
 		</script>
 		<link rel="stylesheet" href="styles.css"/>
 	</head>
 	<body>
-		<!-- This is my week6 update, added a new div.-->
-		<div class="articleContainer">
+		<!-- This is my week6 update, added a new div called container-fluid to hold my visualizations.-->
+		<div class="container-fluid">
 		
 			<!-- 
 				This is the div where I want my Google Viz chart to appear.
 				-->
 		
 		<div class="row">
-			<div class="col-md-6">
-		<!--This is the div where I want my Google Viz chart to keep and show up. -->
+			
+			<!-- I put row in my container to generate horizontal groups of columns.
+			-->
+			<div class="col-md-4">
+		<!--This is the div where I want my first Google Viz chart to keep and show up.
+			And as long as the number at the end of col-md adds up 12 it would work, 
+			so I chose to use 4 and 8 since my second chart has more data. -->
 
 				<div id="chart_keeper1"></div>
 			</div>
 			
-			<div class="col-md-6">
-				
+			<div class="col-md-8">
+				<!--This is the div where I want my second Google Viz chart to keep and show up.-->
 				<div id="chart_keeper2"></div>
 		
 			</div>
